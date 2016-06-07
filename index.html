@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Yo Seguro</title>
+    <meta name="description" content="Una aplicación que te muestra el camino más seguro a tu destino.">
+    <meta name="author" content="Yo Seguro">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <h1 id="Cabecera">Yo Seguro</h1>
+        <textarea name=""id="ChatGeneral"></textarea>
+        <button id="Send">Enviar</button>
+      </div>
+      <div id="fb-root"></div>
+      <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+    </div>
+
+
+    <script>
+ window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '631466133673984',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+// </script>
+
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script src="js/main.js"></script>
+
+<!--Localización-->
+    <script>
+navigator.geolocation.getCurrentPosition(onSuccessGeolocating,
+                                         onErrorGeolocating,
+                                         {
+                                            enableHighAccuracy: true,
+                                            maximumAge:         5000,
+                                            timeout:            10000
+                                         });
+
+function onSuccessGeolocating(position){
+    console.log(position);
+}
+function onErrorGeolocating(error){
+    console.log("Tenemos un problema para localizarte.", error);
+}
+    </script>
+  </body>
+</html>
